@@ -59,3 +59,7 @@ $ python javlibrary_crawler/run_spider.py
 ---
 
 希望这个README文件能帮助你理解和使用这个项目。如果你需要进一步的帮助或有任何建议，随时告诉我。
+
+## Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=desonglll/my-awesome-stars&type=Date)](https://star-history.com/#desonglll/my-awesome-stars&Date)

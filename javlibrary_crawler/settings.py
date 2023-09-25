@@ -65,7 +65,8 @@ ROBOTSTXT_OBEY = True
 
 ITEM_PIPELINES = {
     # 启动pip
-    'javlibrary_crawler.pipelines.SQLitePipeline': 1,
+    'javlibrary_crawler.pipelines.ExcelExportPipeline': 1,
+    # 'javlibrary_crawler.pipelines.SQLitePipeline': 1,
     # 'javlibrary_crawler.pipelines.MySQLPipeline': 2,
 }
 
@@ -94,5 +95,6 @@ ITEM_PIPELINES = {
 REQUEST_FINGERPRINTER_IMPLEMENTATION = "2.7"
 TWISTED_REACTOR = "twisted.internet.asyncioreactor.AsyncioSelectorReactor"
 FEED_EXPORT_ENCODING = "utf-8"
-FEED_FORMAT = 'json'
-FEED_URI = 'output.json'
+FEEDS = {
+
+}

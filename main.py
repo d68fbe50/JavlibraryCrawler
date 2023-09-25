@@ -4,6 +4,7 @@ import javlibrary_crawler.pipelines
 
 
 def main():
+    print("hello")
     javlibrary_crawler.run_spider.main()
     # download_preview.download()
     pass

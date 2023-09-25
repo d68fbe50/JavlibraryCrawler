@@ -2,6 +2,23 @@ import pymysql
 import sqlite3
 from javlibrary_crawler.arguments import db_path
 
+import pandas as pd
+
+
+class ExcelExportPipeline:
+    def __init__(self):
+        self.items = []
+
+    def process_item(self, item, spider):
+        self.items.append(item)
+        return item
+
+    def close_spider(self, spider):
+        df = pd.DataFrame(self.items)
+        print("xxxx" * 100)
+        df.to_excel('output.xlsx', index=False)
+
+
 class MySQLPipeline:
     def recreate_table(self):
         with self.connection.cursor() as cursor:

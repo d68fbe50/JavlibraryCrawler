@@ -44,7 +44,8 @@ class JavlibrarySpider(scrapy.Spider):
 
         base_url = response.meta['base_url']
         # 解析最后一页的数字
-        last_page_num = int(response.xpath('//a[@class="page last"]/@href').re(r'page=(\d+)')[0])
+        last_page=response.xpath('//a[@class="page last"]/@href').re(r'page=(\d+)')
+        last_page_num = int(last_page[0]if last_page else 1)
 
         # 使用for循环生成每一页的URL，并使用parse方法爬取数据
         for page in range(2, last_page_num + 1):

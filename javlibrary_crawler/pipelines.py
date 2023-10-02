@@ -1,7 +1,7 @@
 import pymysql
 import sqlite3
 from javlibrary_crawler.arguments import db_path
-
+import os
 import pandas as pd
 
 
@@ -16,7 +16,7 @@ class ExcelExportPipeline:
     def close_spider(self, spider):
         df = pd.DataFrame(self.items)
         print("xxxx" * 100)
-        df.to_excel('output.xlsx', index=False)
+        df.to_excel(f'{os.getcwd()}/output.xlsx', index=False)
 
 
 class MySQLPipeline:
@@ -74,7 +74,7 @@ class MySQLPipeline:
             cursorclass=pymysql.cursors.DictCursor
         )
         # 需要更改表的结构或者重新创建表
-        # self.recreate_table()
+        self.recreate_table()
 
     def process_item(self, item, spider):
         """

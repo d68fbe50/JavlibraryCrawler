@@ -12,13 +12,14 @@ DB_CONFIG = {
 }
 
 
-def get_image_links():
+def get_image_links(start_date, end_date):
     # 创建数据库连接
     connection = pymysql.connect(**DB_CONFIG)
     cursor = connection.cursor()
 
-    # 执行SQL查询
-    cursor.execute("SELECT preview FROM spider")
+    # 执行SQL查询，过滤时间范围
+    sql = f"SELECT preview FROM spider WHERE release_date BETWEEN '{start_date}' AND '{end_date}'"
+    cursor.execute(sql)
     results = cursor.fetchall()
 
     # 关闭数据库连接
@@ -37,7 +38,7 @@ def download_image(link, folder='downloaded_images'):
     # 从链接中获取图片名
     filename = os.path.join(folder, link.split('/')[-1])
     response = requests.get(link, stream=True)
-    print(f"Download {link}")
+    print(f"正在下载: {link} 📥")
     with open(filename, 'wb') as img_file:
         for chunk in response.iter_content(chunk_size=1024):
             if chunk:
@@ -50,11 +51,14 @@ def multi_threaded_download(links, folder='downloaded_images', max_threads=5):
             executor.submit(download_image, link, folder)
 
 
-def download():
-    print("开始下载预览图")
-    links = get_image_links()
+def download(start_date, end_date):
+    print("开始下载预览图 🚀")
+    links = get_image_links(start_date, end_date)
     multi_threaded_download(links)
 
 
 if __name__ == '__main__':
-    download()
+    # 你可以在这里定义所需的日期范围
+    start_date = '2023-08-01'
+    end_date = '2023-08-15'
+    download(start_date, end_date)

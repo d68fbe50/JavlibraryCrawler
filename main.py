@@ -7,8 +7,8 @@ from javlibrary_crawler.spiders.actors_spider import ActorsSpider
 def main():
     print("hello")
     process = CrawlerProcess(get_project_settings())
-    # process.crawl(WorksSpider)
-    process.crawl(ActorsSpider)
+    process.crawl(WorksSpider)
+    # process.crawl(ActorsSpider)
     # download_preview.download()
     process.start()
 

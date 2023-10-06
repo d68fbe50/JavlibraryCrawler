@@ -5,22 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d04e4fe2-d83a-4341-b97b-8bbc947d0b7c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/javlibrary_crawler/redis_config.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javcraw.db" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/javlibrary_crawler/arguments.py" beforeDir="false" afterPath="$PROJECT_DIR$/javlibrary_crawler/arguments.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javlibrary_crawler/dash_app.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/javlibrary_crawler/download_preview.py" beforeDir="false" afterPath="$PROJECT_DIR$/javlibrary_crawler/download_preview.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javlibrary_crawler/initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/javlibrary_crawler/items.py" beforeDir="false" afterPath="$PROJECT_DIR$/javlibrary_crawler/items.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javlibrary_crawler/pipelines.py" beforeDir="false" afterPath="$PROJECT_DIR$/javlibrary_crawler/pipelines.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javlibrary_crawler/run_spider.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/javlibrary_crawler/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/javlibrary_crawler/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javlibrary_crawler/spiders/actor_spider.py" beforeDir="false" afterPath="$PROJECT_DIR$/javlibrary_crawler/spiders/actors_spider.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javlibrary_crawler/spiders/javlibrary_spider.py" beforeDir="false" afterPath="$PROJECT_DIR$/javlibrary_crawler/spiders/works_spider.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javlibrary_crawler/spiders/actors_spider.py" beforeDir="false" afterPath="$PROJECT_DIR$/javlibrary_crawler/spiders/actors_spider.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javlibrary_crawler/spiders/works_spider.py" beforeDir="false" afterPath="$PROJECT_DIR$/javlibrary_crawler/spiders/works_spider.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -235,7 +223,7 @@
       <workItem from="1696247963581" duration="5081000" />
       <workItem from="1696259872827" duration="1348000" />
       <workItem from="1696333077670" duration="5494000" />
-      <workItem from="1696586200355" duration="9679000" />
+      <workItem from="1696586200355" duration="10429000" />
     </task>
     <servers />
   </component>

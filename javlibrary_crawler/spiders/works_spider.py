@@ -29,6 +29,7 @@ class WorksSpider(scrapy.Spider):
 
         # 使用for循环生成每一页的URL，并使用parse方法爬取数据
         for page in range(2, last_page_num + 1):
+            print(f"Current Page {page}, Total Page {last_page_num}")
             yield scrapy.Request(url=base_url.format(page), callback=self.parse)
 
     def parse(self, response):

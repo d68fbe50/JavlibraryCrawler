@@ -30,4 +30,5 @@ class ActorsSpider(scrapy.Spider):
         # 如果当前页不是最后一页，则生成后续页面的请求
         if current_page < last_page_num:
             next_page = current_page + 1
+            print(f"Current Page {current_page}, Total Page {last_page_num}")
             yield scrapy.Request(url=self.base_url.format(prefix=current_prefix, page=next_page), callback=self.parse)

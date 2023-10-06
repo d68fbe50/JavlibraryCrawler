@@ -24,7 +24,15 @@ class WorkSpider(scrapy.Item):
     genres = scrapy.Field()
     cast = scrapy.Field()
 
+    def parse(self, response):
+        # 处理响应的逻辑
+        pass
+
 
 class ActorItem(scrapy.Item):
     actor_name = scrapy.Field()
     actor_id = scrapy.Field()
+
+    def parse(self, response):
+        # 处理响应的逻辑
+        pass

@@ -60,5 +60,5 @@ def download(start_date, end_date):
 if __name__ == '__main__':
     # 你可以在这里定义所需的日期范围
     start_date = '2023-08-01'
-    end_date = '2023-08-15'
+    end_date = '2023-12-19'
     download(start_date, end_date)

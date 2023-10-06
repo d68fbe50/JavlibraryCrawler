@@ -1,20 +1,20 @@
-import os
-
-import javlibrary_crawler.run_spider
-import javlibrary_crawler.download_preview
-import javlibrary_crawler.pipelines
-import javlibrary_crawler.initial as init
+from scrapy.crawler import CrawlerProcess
+from scrapy.utils.project import get_project_settings
+from javlibrary_crawler.spiders.works_spider import WorksSpider
+from javlibrary_crawler.spiders.actors_spider import ActorsSpider
 
 
 def main():
     print("hello")
-    init.init_mysql()
-    javlibrary_crawler.run_spider.main()
+    process = CrawlerProcess(get_project_settings())
+    # process.crawl(WorksSpider)
+    process.crawl(ActorsSpider)
     # download_preview.download()
+    process.start()
+
     pass
 
 
 if __name__ == "__main__":
     main()
-    # print(os.getcwd())
     pass

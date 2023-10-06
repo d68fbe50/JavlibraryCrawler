@@ -1,36 +1,16 @@
-import pymysql
 import scrapy
 from javlibrary_crawler.items import WorkSpider
 
 from javlibrary_crawler.arguments import ids
 
 
-class JavlibrarySpider(scrapy.Spider):
-    name = "javlibrary"
+class WorksSpider(scrapy.Spider):
+    name = "works_spider"
     base_url_template = 'https://www.javlibrary.com/cn/vl_star.php?list&mode=&s={actor_id}&page={page}'
     items_dict = {}
 
-    # 从MySQL数据库获取所有的actor_id
-    def get_all_actor_ids(self):
-        connection = pymysql.connect(
-            host='localhost',
-            user='root',
-            password='Lindesong7758?',
-            database='javcraw'
-        )
-
-        try:
-            with connection.cursor(pymysql.cursors.DictCursor) as cursor:  # 使用DictCursor
-                sql = "SELECT actor_id FROM actor"
-                cursor.execute(sql)
-                result = cursor.fetchall()
-                return [item['actor_id'] for item in result]
-        finally:
-            connection.close()
-
     def start_requests(self):
         actor_ids = ids
-        # print("Starting requests for actor_ids:", actor_ids)  # 打印开始请求的actor_ids
 
         for actor_id in actor_ids:
             yield scrapy.Request(url=self.base_url_template.format(actor_id=actor_id, page=1),
@@ -44,8 +24,8 @@ class JavlibrarySpider(scrapy.Spider):
 
         base_url = response.meta['base_url']
         # 解析最后一页的数字
-        last_page=response.xpath('//a[@class="page last"]/@href').re(r'page=(\d+)')
-        last_page_num = int(last_page[0]if last_page else 1)
+        last_page = response.xpath('//a[@class="page last"]/@href').re(r'page=(\d+)')
+        last_page_num = int(last_page[0] if last_page else 1)
 
         # 使用for循环生成每一页的URL，并使用parse方法爬取数据
         for page in range(2, last_page_num + 1):

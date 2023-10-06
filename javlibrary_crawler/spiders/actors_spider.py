@@ -3,12 +3,12 @@ from javlibrary_crawler.items import ActorItem
 import string
 
 
-class ActorSpider(scrapy.Spider):
-    name = 'actor_spider'
+class ActorsSpider(scrapy.Spider):
+    name = 'actors_spider'
     base_url = 'https://www.javlibrary.com/en/star_list.php?prefix={prefix}&page={page}'
 
     def __init__(self, *args, **kwargs):
-        super(ActorSpider, self).__init__(*args, **kwargs)
+        super(ActorsSpider, self).__init__(*args, **kwargs)
         # 为每个大写字母生成起始URL
         self.start_urls = [self.base_url.format(prefix=letter, page=1) for letter in string.ascii_uppercase]
 

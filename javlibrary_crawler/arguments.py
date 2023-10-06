@@ -1,7 +1,3 @@
-import os
-
-db_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "../javcraw.db")
-
 ids = [
     # 在这里添加演员id
     "aadt6",

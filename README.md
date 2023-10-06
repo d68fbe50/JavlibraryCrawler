@@ -2,45 +2,53 @@
 
 ## 介绍
 
-`Javlibrary Crawler` 是一个用于从[JavLibrary](https://www.javlibrary.com/)网站提取日本成人视频数据的 Scrapy 爬虫项目。项目能够获取演员信息、作品详情、评分、评论数、导演、制片商和标签等信息。
+`Javlibrary Crawler` 是一个用于从[JavLibrary](https://www.javlibrary.com/)网站提取日本成人视频数据的 Scrapy
+爬虫项目。项目能够获取演员信息、作品详情、评分、评论数、导演、制片商和标签等信息。
 
-## 目录结构
+## [数据库结构](https://dbdiagram.io/d)
 
-```
-.
-├── README.md                           - 本说明文件
-├── javlibrary_crawler                  - 主要爬虫代码目录
-│   ├── __init__.py                     - 初始化文件
-│   ├── arguments.py                   - 参数文件
-│   ├── download_preview.py            - 下载预览脚本
-│   ├── items.py                       - Scrapy items定义文件
-│   ├── javcraw.db                     - SQLite数据库文件
-│   ├── main.py                        - 主脚本文件
-│   ├── middlewares.py                 - Scrapy中间件文件
-│   ├── output.json                    - 输出的JSON数据文件
-│   ├── pipelines.py                   - 数据处理管道文件
-│   ├── run_spider.py                  - 爬虫启动脚本
-│   ├── settings.py                    - Scrapy设置文件
-│   └── spiders                        - 爬虫脚本目录
-│       ├── __init__.py                - 初始化文件
-│       ├── actor_spider.py            - 演员数据爬虫
-│       └── javlibrary_spider.py       - 主要数据爬虫
-└── scrapy.cfg                         - Scrapy配置文件
+```db
+Table movies {
+  id integer [primary key, increment]
+  serial_number varchar(255) [unique]
+  title text
+  actor_id text
+  release_date date
+  comments integer
+  reviews integer
+  preview text
+  link text
+  maker varchar(255)
+  length integer
+  director varchar(255)
+  label varchar(255)
+  user_rating float
+  genres text  
+  cast text   
+}
+
+Table actors{
+  actor_id text
+  actor_name text
+}
+
+Ref: movies.actor_id > actors.actor_id
+Ref: movies.cast > actors.actor_name
 ```
 
 ## 使用方法
 
 1. 确保你已经安装了所有必要的依赖，例如`Scrapy`和`pymysql`。
 
-2. 修改`settings.py`文件中的相关设置，以适应你的需求。
+2. 修改`arguments.py`文件中的相关设置，以适应你的需求。
 
 3. 使用以下命令启动爬虫：
 
 ```bash
-$ python javlibrary_crawler/run_spider.py
+python main.py
 ```
 
-4. 爬取的数据将保存到`javcraw.db` SQLite数据库文件中。
+4. 爬取的数据将保存到`Redis`数据库中。
 
 ## 注意事项
 

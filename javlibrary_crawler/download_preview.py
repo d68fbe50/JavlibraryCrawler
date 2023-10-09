@@ -4,12 +4,7 @@ import os
 from concurrent.futures import ThreadPoolExecutor
 
 # 数据库连接信息
-DB_CONFIG = {
-    # 'host': 'localhost',
-    # 'user': 'root',
-    # 'password': '',
-    # 'database': 'javcraw'
-}
+DB_CONFIG = {"host": "localhost", "user": "root", "password": "", "database": "javcraw"}
 
 
 def get_image_links(start_date, end_date):

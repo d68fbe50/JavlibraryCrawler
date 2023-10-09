@@ -1,11 +1,10 @@
-# Javlibrary Crawler
+# Javlibrary 爬虫
 
 ## 介绍
 
-`Javlibrary Crawler` 是一个用于从[JavLibrary](https://www.javlibrary.com/)网站提取日本成人视频数据的 Scrapy
-爬虫项目。项目能够获取演员信息、作品详情、评分、评论数、导演、制片商和标签等信息。
+`Javlibrary 爬虫` 是一个使用 Scrapy 框架的项目，用于从 [JavLibrary](https://www.javlibrary.com/) 网站提取日本成人视频数据。该项目可以获取演员信息、作品详情、评分、评论数、导演、制片商和标签等信息。
 
-## [数据库结构](https://dbdiagram.io/d)
+## 数据库结构
 
 ```db
 Table movies {
@@ -23,8 +22,8 @@ Table movies {
   director varchar(255)
   label varchar(255)
   user_rating float
-  genres text  
-  cast text   
+  genres text
+  cast text
 }
 
 Table actors{
@@ -38,9 +37,15 @@ Ref: movies.cast > actors.actor_name
 
 ## 使用方法
 
-1. 确保你已经安装了所有必要的依赖，例如`Scrapy`和`pymysql`。
+1. 确保环境
+    - 确保已安装所需的依赖项，如 `Scrapy` 和 `pymysql`。
+    - 确保能够科学上网，如果遇到 403 错误，请尝试更换不同地区的代理节点。测试时，韩国（Korea）和台湾（Taiwan）的节点可行。
+    - 不要在 GitHub Actions 中设置自动任务，因为 JavLibrary 禁止 GitHub 相关 IP 访问。
 
-2. 修改`arguments.py`文件中的相关设置，以适应你的需求。
+2. 配置参数
+    - 修改 `arguments.py` 文件中的相关设置以满足你的需求。
+      - 填入你想要爬取的演员的 ID，例如 `https://www.javlibrary.com/cn/vl_star.php?list&mode=&s=ae5q6&page=1` 中的 `ae5q6` 就是演员的 ID。
+    - 修改 `redis_config.py` 中关于 Redis 服务器的配置。
 
 3. 使用以下命令启动爬虫：
 
@@ -48,26 +53,26 @@ Ref: movies.cast > actors.actor_name
 python main.py
 ```
 
-4. 爬取的数据将保存到`Redis`数据库中。
+4. 爬取的数据将保存到 Redis 数据库中。
 
 ## 注意事项
 
 1. 在使用爬虫之前，请确保你有合适的权限访问目标网站。
-2. 频繁的爬取可能导致你的IP被封锁，建议在`settings.py`中设置适当的延迟。
-3. 请遵守网站的`robots.txt`文件和相关法律法规。
+2. 频繁地爬取可能导致你的 IP 被封锁，建议在 `settings.py` 中设置适当的延迟。
+3. 请遵守网站的 `robots.txt` 文件和相关法律法规。
 
 ## 贡献
 
-欢迎提交问题和拉取请求，一同完善此项目。
+欢迎提交问题和拉取请求，一起完善此项目。
 
 ## 许可证
 
-本项目使用MIT许可证，详情请查看[LICENSE](LICENSE)文件。
+本项目使用 MIT 许可证，详情请查看 [LICENSE](LICENSE) 文件。
 
 ---
 
-希望这个README文件能帮助你理解和使用这个项目。如果你需要进一步的帮助或有任何建议，随时告诉我。
+希望这个 README 文件能帮助你理解和使用这个项目。如果你需要进一步的帮助或有任何建议，请随时告诉我。
 
-## Star History
+## Star 历史
 
-[![Star History Chart](https://api.star-history.com/svg?repos=desonglll/my-awesome-stars&type=Date)](https://star-history.com/#desonglll/my-awesome-stars&Date)
+[![Star 历史图表]()](https://star-history.com/#desonglll/my-awesome-stars&Date)

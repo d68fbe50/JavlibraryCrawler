@@ -75,6 +75,6 @@ python main.py
 
 希望这个 README 文件能帮助你理解和使用这个项目。如果你需要进一步的帮助或有任何建议，请随时告诉我。
 
-## Star 历史
+## Star History
 
-![Star 历史图表](https://star-history.com/#desonglll/my-awesome-stars&Date)
+[![Star History Chart](https://api.star-history.com/svg?repos=desonglll/javlibrary_crawler&type=Date)](https://star-history.com/#desonglll/javlibrary_crawler&Date)

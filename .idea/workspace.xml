@@ -4,8 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d04e4fe2-d83a-4341-b97b-8bbc947d0b7c" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+    <list default="true" id="d04e4fe2-d83a-4341-b97b-8bbc947d0b7c" name="Changes" comment="Add star history">
+      <change afterPath="$PROJECT_DIR$/ChangeLog.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/javlibrary_crawler/spiders/magnet_spider.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/response.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/test_soup.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javlibrary_crawler/arguments.py" beforeDir="false" afterPath="$PROJECT_DIR$/javlibrary_crawler/arguments.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javlibrary_crawler/items.py" beforeDir="false" afterPath="$PROJECT_DIR$/javlibrary_crawler/items.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javlibrary_crawler/pipelines.py" beforeDir="false" afterPath="$PROJECT_DIR$/javlibrary_crawler/pipelines.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javlibrary_crawler/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/javlibrary_crawler/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javlibrary_crawler/spiders/works_spider.py" beforeDir="false" afterPath="$PROJECT_DIR$/javlibrary_crawler/spiders/works_spider.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,7 +87,7 @@
       <recent name="$PROJECT_DIR$/javlibrary_crawler" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.main">
+  <component name="RunManager" selected="Python.test_soup">
     <configuration name="app" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="javlibrary_crawler" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -165,7 +176,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="run_spider" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="test_soup" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="javlibrary_crawler" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -173,12 +184,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/javlibrary_crawler" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/test" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/javlibrary_crawler/run_spider.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test/test_soup.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -189,11 +200,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.test_soup" />
         <item itemvalue="Python.main" />
         <item itemvalue="Python.app" />
         <item itemvalue="Python.dash_app" />
         <item itemvalue="Python.download_preview" />
-        <item itemvalue="Python.run_spider" />
       </list>
     </recent_temporary>
   </component>
@@ -223,21 +234,47 @@
       <workItem from="1696586200355" duration="12787000" />
       <workItem from="1696645825569" duration="267000" />
       <workItem from="1696837120373" duration="1669000" />
-      <workItem from="1696840848866" duration="223000" />
+      <workItem from="1696840848866" duration="271000" />
+      <workItem from="1696854952805" duration="5647000" />
+      <workItem from="1696897255581" duration="2834000" />
+      <workItem from="1697033893541" duration="923000" />
     </task>
+    <task id="LOCAL-00001" summary="Add star history">
+      <option name="closed" value="true" />
+      <created>1696841099390</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1696841099390</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <ignored-roots>
       <path value="$PROJECT_DIR$/.." />
     </ignored-roots>
+    <MESSAGE value="Add star history" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add star history" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/javlibrary_crawler$main.coverage" NAME="main Coverage Results" MODIFIED="1696837417973" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/javlibrary_crawler" />
+    <SUITE FILE_PATH="coverage/javlibrary_crawler$main.coverage" NAME="main Coverage Results" MODIFIED="1697033917186" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/javlibrary_crawler" />
+    <SUITE FILE_PATH="coverage/javlibrary_crawler$test_soup.coverage" NAME="test_soup Coverage Results" MODIFIED="1697034350326" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
     <SUITE FILE_PATH="coverage/javlibrary_crawler$dash.coverage" NAME="dash_app Coverage Results" MODIFIED="1695536981281" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/javlibrary_crawler" />
     <SUITE FILE_PATH="coverage/javlibrary_crawler$download_preview.coverage" NAME="download_preview Coverage Results" MODIFIED="1696248064067" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/javlibrary_crawler" />
     <SUITE FILE_PATH="coverage/javlibrary_crawler$app.coverage" NAME="app Coverage Results" MODIFIED="1696254795604" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/flask_app" />

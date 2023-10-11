@@ -1,7 +1,11 @@
+import time
+
 from scrapy.crawler import CrawlerProcess
 from scrapy.utils.project import get_project_settings
 from javlibrary_crawler.spiders.works_spider import WorksSpider
 from javlibrary_crawler.spiders.actors_spider import ActorsSpider
+
+from tqdm import tqdm
 
 
 def main():

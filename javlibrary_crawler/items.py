@@ -23,6 +23,7 @@ class WorkSpider(scrapy.Item):
     user_rating = scrapy.Field()
     genres = scrapy.Field()
     cast = scrapy.Field()
+    magnet = scrapy.Field()
 
     def parse(self, response):
         # 处理响应的逻辑

@@ -5,7 +5,7 @@
 `Javlibrary 爬虫` 是一个使用 Scrapy 框架的项目，用于从 [JavLibrary](https://www.javlibrary.com/)
 网站提取日本成人视频数据。该项目可以获取演员信息、作品详情、评分、评论数、导演、制片商和标签等信息。
 
-## 数据库结构
+## [数据库结构](https://dbdiagram.io/)
 
 ```db
 Table movies {
@@ -47,12 +47,12 @@ Ref: movies.cast > actors.actor_name
 ### 配置参数
 
 - 修改 `config.arguments` 文件中的相关设置以满足你的需求。
-    - 填入你想要爬取的演员的 ID，例如 `https://www.javlibrary.com/cn/vl_star.php?list&mode=&s=ae5q6&page=1`
-      中的 `ae5q6` 就是演员的 ID。
-    - `reference里提供了json格式的演员数据供参考`
+  - 填入你想要爬取的演员的 ID，例如 `https://www.javlibrary.com/cn/vl_star.php?list&mode=&s=ae5q6&page=1`
+    中的 `ae5q6` 就是演员的 ID。
+  - `reference里提供了json格式的演员数据供参考`
 - 通过修改`javlibrary_crawer.settings.ITEM_PIPELINES`选择要保存到哪个数据库中
-    - 如果是redis：修改 `config.database_config` 中关于 Redis 服务器的配置。
-    - 如果是mysql: 修改 `config.database_config` 中关于 Mysql 服务器的配置。
+  - 如果是redis：修改 `config.database_config` 中关于 Redis 服务器的配置。
+  - 如果是mysql: 修改 `config.database_config` 中关于 Mysql 服务器的配置。
 
 ### 使用以下命令启动爬虫：
 

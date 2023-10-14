@@ -13,3 +13,11 @@
 #### 20231011
 
 - Try `request` to get `javbus` page but failed.
+
+## Attached
+
+### Database operations
+
+#### 20231014
+
+- Add Mysql database saving movement.

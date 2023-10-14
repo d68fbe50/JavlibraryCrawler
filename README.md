@@ -47,7 +47,8 @@ Ref: movies.cast > actors.actor_name
     - 修改 `arguments.py` 文件中的相关设置以满足你的需求。
         - 填入你想要爬取的演员的 ID，例如 `https://www.javlibrary.com/cn/vl_star.php?list&mode=&s=ae5q6&page=1`
           中的 `ae5q6` 就是演员的 ID。
-    - 修改 `redis_config.py` 中关于 Redis 服务器的配置。
+    - 选择你想使用的数据库类型`settings.py`
+        - 修改 `redis_config.py` 中关于 Redis 服务器的配置。
 
 3. 使用以下命令启动爬虫：
 

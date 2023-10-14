@@ -1,11 +1,10 @@
-import time
-
+import pymysql
 from scrapy.crawler import CrawlerProcess
 from scrapy.utils.project import get_project_settings
 from javlibrary_crawler.spiders.works_spider import WorksSpider
 from javlibrary_crawler.spiders.actors_spider import ActorsSpider
-
-from tqdm import tqdm
+import dbop.mysql_op as mysql_op
+from config.database_config import MYSQL_CONFIG, MYSQL_DBNAME
 
 
 def main():
@@ -19,6 +18,13 @@ def main():
     pass
 
 
+def db_init():
+    connection = pymysql.connect(**MYSQL_CONFIG)
+    cursor = connection.cursor()
+    mysql_op.init_db(cursor, MYSQL_DBNAME)
+
+
 if __name__ == "__main__":
+    db_init()
     main()
     pass

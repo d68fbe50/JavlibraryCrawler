@@ -1,10 +1,11 @@
 import scrapy
 from javlibrary_crawler.items import ActorItem
+from config import arguments
 import string
 
 
 class ActorsSpider(scrapy.Spider):
-    name = 'actors_spider'
+    name = arguments.actor_spidername
     base_url = 'https://www.javlibrary.com/en/star_list.php?prefix={prefix}&page={page}'
 
     def __init__(self, *args, **kwargs):

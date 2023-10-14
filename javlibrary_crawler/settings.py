@@ -65,7 +65,8 @@ ROBOTSTXT_OBEY = False
 
 ITEM_PIPELINES = {
     # 启动pip
-    'javlibrary_crawler.pipelines.RedisPipeline': 1,
+    # 'javlibrary_crawler.pipelines.RedisPipeline': 1,
+    'javlibrary_crawler.pipelines.MySQLPipeline': 1,
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)

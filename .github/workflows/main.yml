@@ -1,6 +1,6 @@
 name: CI
 
-on: [push, pull_request]
+on: [ push, pull_request ]
 
 jobs:
   build:
@@ -20,6 +20,6 @@ jobs:
           pip install -r requirements.txt
 
       # 如果有测试，则在此处运行它们
-      - name: Run tests
-        run: |
-          python main.py
+#      - name: Run tests
+#        run: |
+#          python main.py

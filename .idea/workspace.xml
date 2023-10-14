@@ -5,8 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d04e4fe2-d83a-4341-b97b-8bbc947d0b7c" name="Changes" comment="Add some pre-method to get magnet link but not successful.">
+      <change beforePath="$PROJECT_DIR$/.github/workflows/main.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/main.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/javlibrary_crawler.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/javlibrary_crawler.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ChangeLog.md" beforeDir="false" afterPath="$PROJECT_DIR$/ChangeLog.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -231,7 +234,7 @@
       <workItem from="1697033893541" duration="1008000" />
       <workItem from="1697197514206" duration="3569000" />
       <workItem from="1697249446007" duration="4449000" />
-      <workItem from="1697254053109" duration="265000" />
+      <workItem from="1697254053109" duration="543000" />
     </task>
     <task id="LOCAL-00001" summary="Add star history">
       <option name="closed" value="true" />

@@ -1,6 +1,6 @@
 import pymysql
-import dbop.mysql_op as mysql_op
 
+# 以下是Redis服务器的设置
 REDIS_CONFIG = {
     # 配置redis参数
     "host": "localhost",
@@ -9,6 +9,7 @@ REDIS_CONFIG = {
     "password": "",
 }
 
+# 以下是Mysql服务器的设置
 MYSQL_DBNAME = "javcrawer"
 MYSQL_CONFIG = {
     "host": 'localhost',
@@ -21,6 +22,4 @@ MYSQL_CONFIG = {
 
 if __name__ == "__main__":
     # 调用重新创建表的函数
-    # mysql_op.drop_database("javcrawer")
-    mysql_op.init_db(MYSQL_DBNAME)
     pass

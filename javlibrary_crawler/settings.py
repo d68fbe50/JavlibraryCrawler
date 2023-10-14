@@ -64,7 +64,7 @@ ROBOTSTXT_OBEY = False
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
 
 ITEM_PIPELINES = {
-    # 启动pip
+    # 选择启动哪个数据库，后面的数字表示优先级
     # 'javlibrary_crawler.pipelines.RedisPipeline': 1,
     'javlibrary_crawler.pipelines.MySQLPipeline': 1,
 }

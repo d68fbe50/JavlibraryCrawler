@@ -53,6 +53,7 @@ Ref: movies.cast > actors.actor_name
 - 通过修改`javlibrary_crawer.settings.ITEM_PIPELINES`选择要保存到哪个数据库中
   - 如果是redis：修改 `config.database_config` 中关于 Redis 服务器的配置。
   - 如果是mysql: 修改 `config.database_config` 中关于 Mysql 服务器的配置。
+- `main.py`中还有下载预览图的功能，目标目录为`downloaded_images`
 
 ### 使用以下命令启动爬虫：
 

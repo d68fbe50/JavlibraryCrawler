@@ -25,6 +25,7 @@ def db_init():
 
 
 if __name__ == "__main__":
+    # 初始化数据库
     db_init()
     main()
     pass

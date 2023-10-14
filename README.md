@@ -38,25 +38,28 @@ Ref: movies.cast > actors.actor_name
 
 ## 使用方法
 
-1. 确保环境
-    - 确保已安装所需的依赖项，如 `Scrapy` 和 `pymysql`。
-    - 确保能够科学上网，如果遇到 403 错误，请尝试更换不同地区的代理节点。测试时，韩国（Korea）和台湾（Taiwan）的节点可行。
-    - 不要在 GitHub Actions 中设置自动任务，因为 JavLibrary 禁止 GitHub 相关 IP 访问。
+### 确保环境
 
-2. 配置参数
-    - 修改 `arguments.py` 文件中的相关设置以满足你的需求。
-        - 填入你想要爬取的演员的 ID，例如 `https://www.javlibrary.com/cn/vl_star.php?list&mode=&s=ae5q6&page=1`
-          中的 `ae5q6` 就是演员的 ID。
-    - 选择你想使用的数据库类型`settings.py`
-        - 修改 `redis_config.py` 中关于 Redis 服务器的配置。
+- 确保已安装所需的依赖项，如 `Scrapy` 和 `pymysql`。
+- 确保能够科学上网，如果遇到 403 错误，请尝试更换不同地区的代理节点。测试时，韩国（Korea）和台湾（Taiwan）的节点可行。
+- 不要在 GitHub Actions 中设置自动任务，因为 JavLibrary 禁止 GitHub 相关 IP 访问。
 
-3. 使用以下命令启动爬虫：
+### 配置参数
+
+- 修改 `arguments.py` 文件中的相关设置以满足你的需求。
+    - 填入你想要爬取的演员的 ID，例如 `https://www.javlibrary.com/cn/vl_star.php?list&mode=&s=ae5q6&page=1`
+      中的 `ae5q6` 就是演员的 ID。
+- 通过修改`javlibrary_crawer.settings.ITEM_PIPELINES`选择要保存到哪个数据库中
+    - 如果是redis：修改 `config.database_config` 中关于 Redis 服务器的配置。
+    - 如果是mysql: 修改 `config.database_config` 中关于 Mysql 服务器的配置。
+
+### 使用以下命令启动爬虫：
 
 ```bash
 python main.py
 ```
 
-4. 爬取的数据将保存到 Redis 数据库中。
+### 爬取的数据将保存到数据库中。
 
 ## 注意事项
 

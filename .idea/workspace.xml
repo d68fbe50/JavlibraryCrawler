@@ -5,18 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d04e4fe2-d83a-4341-b97b-8bbc947d0b7c" name="Changes" comment="Add some pre-method to get magnet link but not successful.">
-      <change afterPath="$PROJECT_DIR$/config/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/database_config.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dbop/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dbop/mysql_op.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/test_db.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javlibrary_crawler/arguments.py" beforeDir="false" afterPath="$PROJECT_DIR$/config/arguments.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javlibrary_crawler/pipelines.py" beforeDir="false" afterPath="$PROJECT_DIR$/javlibrary_crawler/pipelines.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javlibrary_crawler/redis_config.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/javlibrary_crawler/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/javlibrary_crawler/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javlibrary_crawler/spiders/actors_spider.py" beforeDir="false" afterPath="$PROJECT_DIR$/javlibrary_crawler/spiders/actors_spider.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/javlibrary_crawler/spiders/works_spider.py" beforeDir="false" afterPath="$PROJECT_DIR$/javlibrary_crawler/spiders/works_spider.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
@@ -242,7 +232,7 @@
       <workItem from="1696897255581" duration="2834000" />
       <workItem from="1697033893541" duration="1008000" />
       <workItem from="1697197514206" duration="3569000" />
-      <workItem from="1697249446007" duration="3627000" />
+      <workItem from="1697249446007" duration="4449000" />
     </task>
     <task id="LOCAL-00001" summary="Add star history">
       <option name="closed" value="true" />
@@ -287,7 +277,7 @@
     <option name="LAST_COMMIT_MESSAGE" value="Add some pre-method to get magnet link but not successful." />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/javlibrary_crawler$main.coverage" NAME="main Coverage Results" MODIFIED="1697252668610" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/javlibrary_crawler" />
+    <SUITE FILE_PATH="coverage/javlibrary_crawler$main.coverage" NAME="main Coverage Results" MODIFIED="1697253540944" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/javlibrary_crawler" />
     <SUITE FILE_PATH="coverage/javlibrary_crawler$test_soup.coverage" NAME="test_soup Coverage Results" MODIFIED="1697197534077" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
     <SUITE FILE_PATH="coverage/javlibrary_crawler$dash.coverage" NAME="dash_app Coverage Results" MODIFIED="1695536981281" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/javlibrary_crawler" />
     <SUITE FILE_PATH="coverage/javlibrary_crawler$test_db.coverage" NAME="test_db Coverage Results" MODIFIED="1697199179825" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />

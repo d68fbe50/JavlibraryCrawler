@@ -2,12 +2,12 @@ import re
 
 import scrapy
 from javlibrary_crawler.items import WorkSpider
-
-from config.arguments import ids, actor_spidername
+from config import arguments
+from config.arguments import ids as ids
 
 
 class WorksSpider(scrapy.Spider):
-    name = actor_spidername
+    name = arguments.works_spidername
     base_url_template = (
         "https://www.javlibrary.com/cn/vl_star.php?list&mode=&s={actor_id}&page={page}"
     )

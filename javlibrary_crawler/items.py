@@ -37,3 +37,14 @@ class ActorItem(scrapy.Item):
     def parse(self, response):
         # 处理响应的逻辑
         pass
+
+
+# items.py
+
+
+class MagnetItem(scrapy.Item):
+    SerialNumber = scrapy.Field()
+    MagnetLink = scrapy.Field()
+    Pikpak = scrapy.Field()
+    Size = scrapy.Field()
+    UploadDate = scrapy.Field()

@@ -28,7 +28,8 @@ def create_works_table(cursor):
         label VARCHAR(255),
         user_rating FLOAT,
         genres TEXT,  -- 新添加的字段
-        cast TEXT     -- 新添加的字段
+        cast TEXT,     -- 新添加的字段
+        magnet_link TEXT
     )
     """)
     print(f"create table: works")

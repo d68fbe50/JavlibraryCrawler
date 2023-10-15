@@ -47,12 +47,13 @@ Ref: movies.cast > actors.actor_name
 ### 配置参数
 
 - 修改 `config.arguments` 文件中的相关设置以满足你的需求。
-  - 填入你想要爬取的演员的 ID，例如 `https://www.javlibrary.com/cn/vl_star.php?list&mode=&s=ae5q6&page=1`
-    中的 `ae5q6` 就是演员的 ID。
-  - `reference里提供了json格式的演员数据供参考`
+    - 填入你想要爬取的演员的 ID，例如 `https://www.javlibrary.com/cn/vl_star.php?list&mode=&s=ae5q6&page=1`
+      中的 `ae5q6` 就是演员的 ID。
+    - `reference里提供了json格式的演员数据供参考`
+    - `magnet_file = [2, 10]`来修改获取磁力的大小区间
 - 通过修改`javlibrary_crawer.settings.ITEM_PIPELINES`选择要保存到哪个数据库中
-  - 如果是redis：修改 `config.database_config` 中关于 Redis 服务器的配置。
-  - 如果是mysql: 修改 `config.database_config` 中关于 Mysql 服务器的配置。
+    - 如果是redis：修改 `config.database_config` 中关于 Redis 服务器的配置。
+    - 如果是mysql: 修改 `config.database_config` 中关于 Mysql 服务器的配置。
 - `main.py`中还有下载预览图的功能，目标目录为`downloaded_images`
 
 ### 使用以下命令启动爬虫：
@@ -80,6 +81,12 @@ python main.py
 ---
 
 希望这个 README 文件能帮助你理解和使用这个项目。如果你需要进一步的帮助或有任何建议，请随时告诉我。
+
+## References
+
+### Torrent
+
+[https://onejav.com/](https://onejav.com/)
 
 ## Star History
 

@@ -1,15 +1,24 @@
 import redis
 import pymysql
-from config.database_config import REDIS_CONFIG, MYSQL_CONFIG, MYSQL_DBNAME
+from config.database_config import REDIS_CONFIG, MYSQL_CONFIG
 from config import arguments
+from utils.get_magnet_from_U3C3 import fliter_by_size, size_to_float
+from collections import defaultdict
+
+
+# from utils.get_magnet_from_U3C3 import get_magnet, fliter_by_size
 
 
 class MySQLPipeline:
+    def __init__(self):
+        self.items_dict = defaultdict(list)
+
     def open_spider(self, spider):
         # 连接到MySQL数据库
         self.connection = pymysql.connect(**MYSQL_CONFIG)
-        cursor = self.connection.cursor()
-        cursor.execute("use javcrawer")
+        self.cursor = self.connection.cursor()
+        self.cursor.execute("use javcrawer")
+        self.items_list = []
 
     def process_item(self, item, spider):
         """
@@ -63,9 +72,11 @@ class MySQLPipeline:
                     item['cast']
                 ))
 
+            if spider.name == arguments.magnet_spidername:
+                serial_number = item['SerialNumber']
+                self.items_dict[serial_number].append(item)
             # 提交数据到数据库
             self.connection.commit()
-
         return item
 
     def close_spider(self, spider):
@@ -73,7 +84,41 @@ class MySQLPipeline:
         当spider关闭时执行的方法。
         该方法用于关闭数据库连接。
         """
+        # lists = self.items_list
+        # ft = fliter_by_size(lists, 0, 5)
+        # print(ft)
+        # print("#" * 20)
+        self.update_magnet()
         self.connection.close()
+
+    def update_magnet(self):
+        for serial_number, items in self.items_dict.items():
+            # 取得大小范围内的magnet对象
+            ft = self.fliter_by_size(items, arguments.magnet_file[0], arguments.magnet_file[1])
+            if ft:
+                max_ft = self.get_max_size_item(ft)
+                # print(max_ft['SerialNumber'], max_ft["Size"], max_ft["MagnetLink"])
+                self.cursor.execute("DESCRIBE works;")
+                self.cursor.execute("""
+                INSERT INTO works(serial_number, magnet_link)
+                VALUES (%s, %s)
+                ON DUPLICATE KEY UPDATE
+                magnet_link=VALUES(magnet_link)
+                """, (max_ft['SerialNumber'], max_ft["MagnetLink"]))
+                # 提交更新
+                self.connection.commit()
+            else:
+                print(f"{serial_number} None")
+
+    def fliter_by_size(self, lists, min_size, max_size):
+        # 过滤出给定大小范围内的对象
+        filtered_list = [item for item in lists if min_size <= size_to_float(item['Size']) <= max_size]
+        if filtered_list:
+            return filtered_list
+        return None
+
+    def get_max_size_item(self, items):
+        return max(items, key=lambda x: size_to_float(x['Size']))
 
 
 class RedisPipeline:

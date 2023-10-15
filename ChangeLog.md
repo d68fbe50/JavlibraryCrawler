@@ -21,3 +21,7 @@
 #### 20231014
 
 - Add Mysql database saving movement.
+
+#### 20231015
+
+- Add magnet link craw successful.

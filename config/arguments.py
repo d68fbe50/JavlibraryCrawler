@@ -20,3 +20,7 @@ ids = [
 # 爬虫名字
 actor_spidername = "actors_spider"
 works_spidername = "works_spider"
+magnet_spidername = "magnet_spider"
+
+# 磁力链接的文件大小区间
+magnet_file = [2, 10]

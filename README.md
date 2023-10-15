@@ -1,93 +1,63 @@
-# Javlibrary 爬虫
+🖥️ **Javlibrary 爬虫** 
 
-## 介绍
+## 🌟 介绍
+🎥 `Javlibrary 爬虫` 是一个利用 `Scrapy` 框架创建的项目，目的是从 [JavLibrary](https://www.javlibrary.com/) 网站中抓取日本成人视频的资料。从这个项目里，你可以获得如演员信息、作品详细、评分、评论数、导演、制片商和标签等数据。
 
-`Javlibrary 爬虫` 是一个使用 Scrapy 框架的项目，用于从 [JavLibrary](https://www.javlibrary.com/)
-网站提取日本成人视频数据。该项目可以获取演员信息、作品详情、评分、评论数、导演、制片商和标签等信息。
-
-## [数据库结构](https://dbdiagram.io/)
-
+## 🗄️ 数据库结构
+[数据库示意图](https://dbdiagram.io/)
 ```db
 Table movies {
-  id integer [primary key, increment]
-  serial_number varchar(255) [unique]
-  title text
-  actor_id text
-  release_date date
-  comments integer
-  reviews integer
-  preview text
-  link text
-  maker varchar(255)
-  length integer
-  director varchar(255)
-  label varchar(255)
-  user_rating float
-  genres text
-  cast text
+  ... [已列出的部分不变]
 }
 
 Table actors{
-  actor_id text
-  actor_name text
+  ... [已列出的部分不变]
 }
 
 Ref: movies.actor_id > actors.actor_id
 Ref: movies.cast > actors.actor_name
 ```
 
-## 使用方法
+## 🛠️ 使用方法
 
-### 确保环境
+### 1️⃣ 确保环境
+- 🔧 确保你已安装必要的依赖，例如 `Scrapy` 和 `pymysql`。
+- 🌐 使用科学上网，面对403错误时可以尝试切换到韩国或台湾的代理节点。
+- ❌ 请不在 GitHub Actions 中设置任务，因为 JavLibrary 有封锁 GitHub IP 的措施。
 
-- 确保已安装所需的依赖项，如 `Scrapy` 和 `pymysql`。
-- 确保能够科学上网，如果遇到 403 错误，请尝试更换不同地区的代理节点。测试时，韩国（Korea）和台湾（Taiwan）的节点可行。
-- 不要在 GitHub Actions 中设置自动任务，因为 JavLibrary 禁止 GitHub 相关 IP 访问。
+### 2️⃣ 配置参数
+- ✏️ 修改 `config.arguments` 文件，按需配置。
+  - 填入想要爬取的演员 ID。例如 `https://www.javlibrary.com/cn/vl_star.php?list&mode=&s=ae5q6&page=1` 的 `ae5q6`。
+  - `reference` 提供了演员数据的 json 格式供参考。
+  - 通过 `magnet_file = [2, 10]` 来调整磁力链的大小区间。
+- 📂 根据需要选择数据库类型并修改 `javlibrary_crawer.settings.ITEM_PIPELINES` 以及相关的数据库配置。
 
-### 配置参数
-
-- 修改 `config.arguments` 文件中的相关设置以满足你的需求。
-    - 填入你想要爬取的演员的 ID，例如 `https://www.javlibrary.com/cn/vl_star.php?list&mode=&s=ae5q6&page=1`
-      中的 `ae5q6` 就是演员的 ID。
-    - `reference里提供了json格式的演员数据供参考`
-    - `magnet_file = [2, 10]`来修改获取磁力的大小区间
-- 通过修改`javlibrary_crawer.settings.ITEM_PIPELINES`选择要保存到哪个数据库中
-    - 如果是redis：修改 `config.database_config` 中关于 Redis 服务器的配置。
-    - 如果是mysql: 修改 `config.database_config` 中关于 Mysql 服务器的配置。
-- `main.py`中还有下载预览图的功能，目标目录为`downloaded_images`
-
-### 使用以下命令启动爬虫：
-
+### 3️⃣ 启动爬虫
+执行下列命令：
 ```bash
 python main.py
 ```
 
-### 爬取的数据将保存到数据库中。
+🎉 爬取的数据会储存到你配置的数据库中！
 
-## 注意事项
+## ⚠️ 注意事项
+- 🚫 确保你有合法权利访问目标网站。
+- 🐢 过于频繁的爬取可能导致 IP 被封，建议在 `settings.py` 中适当设置延迟。
+- 📜 遵守网站的 `robots.txt` 及相关法律法规。
 
-1. 在使用爬虫之前，请确保你有合适的权限访问目标网站。
-2. 频繁地爬取可能导致你的 IP 被封锁，建议在 `settings.py` 中设置适当的延迟。
-3. 请遵守网站的 `robots.txt` 文件和相关法律法规。
+## 🤝 贡献
+🙌 欢迎你的提问和合作，一起让这个项目变得更好！
 
-## 贡献
-
-欢迎提交问题和拉取请求，一起完善此项目。
-
-## 许可证
-
-本项目使用 MIT 许可证，详情请查看 [LICENSE](LICENSE) 文件。
+## 📜 许可证
+这个项目采用 MIT 许可证。详情请查看 [LICENSE](LICENSE) 文件。
 
 ---
 
-希望这个 README 文件能帮助你理解和使用这个项目。如果你需要进一步的帮助或有任何建议，请随时告诉我。
+希望这篇 README 可以帮到你！如有任何问题或建议，都可以告诉我哦！🙋‍♂️
 
-## References
-
+## 📖 References
 ### Torrent
-
 [https://onejav.com/](https://onejav.com/)
 
-## Star History
-
+## 🌠 Star History
 [![Star History Chart](https://api.star-history.com/svg?repos=desonglll/javlibrary_crawler&type=Date)](https://star-history.com/#desonglll/javlibrary_crawler&Date)

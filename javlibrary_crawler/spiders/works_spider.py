@@ -12,6 +12,11 @@ class WorksSpider(scrapy.Spider):
         "https://www.javlibrary.com/cn/vl_star.php?list&mode=&s={actor_id}&page={page}"
     )
     items_dict = {}
+    custom_settings = {
+        'ITEM_PIPELINES': {
+            'javlibrary_crawler.pipelines.MySQLPipeline': 1,
+        },
+    }
 
     def __init__(self):
         super(WorksSpider, self).__init__()
@@ -137,16 +142,6 @@ class WorksSpider(scrapy.Spider):
 
         yield item
 
-        # 发起新的请求
-        # 构造magnet_spider的URL
-        # magnet_spider_url = f"https://www.javbus.com/{item['serial_number']}"
-        # yield scrapy.Request(url=magnet_spider_url, callback=self.parse_magnet,
-        #                      meta={'item': item, 'magnet_spider_url': magnet_spider_url},
-        #                      cookies={'PHPSESSID': 'ltlmp66vdffm4cpbuo71mq4qv2', 'existmag': 'mag'},
-        #                      headers={
-        #                          'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36'
-        #                      })
-
     def parse_magnet(self, response):
         # 提取item["serial_number"]
         item = response.meta['item']
@@ -158,8 +153,6 @@ class WorksSpider(scrapy.Spider):
         magnet_links = re.findall(r'magnet:\?xt=urn:btih[^\'"\s]+', response.text)
         print(magnet_links)
         # 处理提取到的链接
-        # for magnet_link in magnet_links:
-        #     item['magnet_link'] = magnet_link
         yield item
         pass
 

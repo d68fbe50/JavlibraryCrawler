@@ -12,12 +12,12 @@ REDIS_CONFIG = {
 # 以下是Mysql服务器的设置
 MYSQL_DBNAME = "javcrawer"
 MYSQL_CONFIG = {
-    "host": 'localhost',
-    "user": 'root',
-    "password": 'Lindesong7758?',
-    "charset": 'utf8mb4',
+    "host": "localhost",
+    "user": "root",
+    "password": "root",
+    "charset": "utf8mb4",
     "database": MYSQL_DBNAME,
-    "cursorclass": pymysql.cursors.DictCursor
+    "cursorclass": pymysql.cursors.DictCursor,
 }
 
 if __name__ == "__main__":

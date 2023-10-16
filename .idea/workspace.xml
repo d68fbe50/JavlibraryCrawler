@@ -5,9 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d04e4fe2-d83a-4341-b97b-8bbc947d0b7c" name="Changes" comment="Add some pre-method to get magnet link but not successful.">
-      <change afterPath="$PROJECT_DIR$/SpendingAnalyze.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ChangeLog.md" beforeDir="false" afterPath="$PROJECT_DIR$/ChangeLog.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -238,6 +237,7 @@
       <workItem from="1697255356354" duration="1131000" />
       <workItem from="1697361270953" duration="454000" />
       <workItem from="1697362106848" duration="12167000" />
+      <workItem from="1697374399136" duration="100000" />
     </task>
     <task id="LOCAL-00001" summary="Add star history">
       <option name="closed" value="true" />

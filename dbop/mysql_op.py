@@ -1,3 +1,32 @@
+# 定义列名的列表和对应的item键的列表
+columns = ['title', 'actor_id', 'serial_number', 'release_date', 'comments', 'reviews', 'link', 'preview', 'maker',
+           'length', 'director', 'label', 'user_rating', 'genres', 'cast', 'online_missav']
+item_keys = ['title', 'actor_id', 'serial_number', 'release_date', 'comments', 'reviews', 'link', 'preview', 'maker',
+             'length', 'director', 'label', 'user_rating', 'genres', 'cast', 'online_missav']
+
+# 定义表字段
+fields = {
+    'id': 'INT AUTO_INCREMENT PRIMARY KEY',
+    'serial_number': 'VARCHAR(255) UNIQUE',
+    'title': 'TEXT',
+    'actor_id': 'TEXT',
+    'release_date': 'DATE',
+    'comments': 'INT',
+    'reviews': 'INT',
+    'preview': 'TEXT',
+    'link': 'TEXT',
+    'maker': 'VARCHAR(255)',
+    'length': 'INT',
+    'director': 'VARCHAR(255)',
+    'label': 'VARCHAR(255)',
+    'user_rating': 'FLOAT',
+    'genres': 'TEXT',  # 新添加的字段
+    'cast': 'TEXT',  # 新添加的字段
+    'magnet_link': 'TEXT',
+    'online_missav': 'TEXT'
+}
+
+
 def recreate_table(cursor):
     # 使用新创建的数据库
     cursor.execute("USE javcrawer")
@@ -10,28 +39,20 @@ def recreate_table(cursor):
     create_works_table(cursor)
     create_actor_table(cursor)
 
+
+def create_table_sql(table_name, fields):
+    """生成创建表的SQL语句。"""
+    fields_str = ', '.join([f"{field} {attributes}" for field, attributes in fields.items()])
+    return f"""
+        CREATE TABLE {table_name}(
+            {fields_str}
+        )
+    """
+
+
 def create_works_table(cursor):
-    cursor.execute("""
-    CREATE TABLE works(
-        id INT AUTO_INCREMENT PRIMARY KEY,
-        serial_number VARCHAR(255) UNIQUE,
-        title TEXT,
-        actor_id TEXT,
-        release_date DATE,
-        comments INT,
-        reviews INT,
-        preview TEXT,
-        link TEXT,
-        maker VARCHAR(255),
-        length INT,
-        director VARCHAR(255),
-        label VARCHAR(255),
-        user_rating FLOAT,
-        genres TEXT,  -- 新添加的字段
-        cast TEXT,     -- 新添加的字段
-        magnet_link TEXT
-    )
-    """)
+    sql = create_table_sql('works', fields)
+    cursor.execute(sql)
     print(f"create table: works")
 
 

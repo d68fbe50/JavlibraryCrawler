@@ -1,7 +1,7 @@
 ids = [
     # 在这里添加演员id
     "aadt6",
-    # 'aaoa4',
+    'aaoa4',
     # 'abbds',
     # 'abdaa',
     # 'ae3so',

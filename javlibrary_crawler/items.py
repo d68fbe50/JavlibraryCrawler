@@ -24,6 +24,7 @@ class WorkSpider(scrapy.Item):
     genres = scrapy.Field()
     cast = scrapy.Field()
     magnet = scrapy.Field()
+    online_missav = scrapy.Field()
 
     def parse(self, response):
         # 处理响应的逻辑

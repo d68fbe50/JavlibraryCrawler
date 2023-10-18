@@ -14,7 +14,7 @@ MYSQL_DBNAME = "javcrawer"
 MYSQL_CONFIG = {
     "host": "localhost",
     "user": "root",
-    "password": "Lindesong7758?",
+    "password": "070011",
     "charset": "utf8mb4",
     # "database": MYSQL_DBNAME,
     "cursorclass": pymysql.cursors.DictCursor,

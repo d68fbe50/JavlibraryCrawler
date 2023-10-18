@@ -4,6 +4,7 @@ from config.database_config import REDIS_CONFIG, MYSQL_CONFIG
 from config import arguments
 from utils.get_magnet_from_U3C3 import fliter_by_size, size_to_float
 from collections import defaultdict
+from dbop import mysql_op as db
 
 
 # from utils.get_magnet_from_U3C3 import get_magnet, fliter_by_size
@@ -36,42 +37,26 @@ class MySQLPipeline:
                 """, (item['actor_id'], item.get('actor_name', '')))
             # 如果是 JavlibrarySpider，将数据保存到 'spider' 表
             if spider.name == arguments.works_spidername:
-                cursor.execute("""
-                    INSERT INTO works(title, actor_id, serial_number, release_date, comments, reviews, link, preview, maker, length, director, label, user_rating, genres, cast) 
-                    VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
-                    ON DUPLICATE KEY UPDATE
-                    title = VALUES(title),
-                    actor_id = VALUES(actor_id),
-                    release_date = VALUES(release_date),
-                    comments = VALUES(comments),
-                    reviews = VALUES(reviews),
-                    link = VALUES(link),
-                    preview = VALUES(preview),
-                    maker = VALUES(maker),
-                    length = VALUES(length),
-                    director = VALUES(director),
-                    label = VALUES(label),
-                    user_rating = VALUES(user_rating),
-                    genres = VALUES(genres),
-                    cast = VALUES(cast)
-                """, (
-                    item['title'],
-                    item.get('actor_id', ''),
-                    item['serial_number'],
-                    item['release_date'],
-                    item['comments'],
-                    item['reviews'],
-                    item['link'],
-                    item['preview'],
-                    item['maker'],
-                    item['length'],
-                    item['director'],
-                    item['label'],
-                    item['user_rating'],
-                    item['genres'],
-                    item['cast']
-                ))
+                # 定义列名的列表和对应的item键的列表
+                columns = db.columns
+                item_keys = db.item_keys
 
+                # 使用列表解析生成插入和更新的SQL语句部分
+                columns_str = ', '.join(columns)
+                placeholders = ', '.join(['%s'] * len(columns))
+                update_str = ', '.join([f"{col} = VALUES({col})" for col in columns])
+
+                # 使用列表解析从item中获取数据
+                values = [item.get(key, '') for key in item_keys]
+
+                # 生成并执行SQL语句
+                sql = f"""
+                    INSERT INTO works({columns_str}) 
+                    VALUES ({placeholders})
+                    ON DUPLICATE KEY UPDATE
+                    {update_str}
+                """
+                cursor.execute(sql, values)
             if spider.name == arguments.magnet_spidername:
                 serial_number = item['SerialNumber']
                 self.items_dict[serial_number].append(item)

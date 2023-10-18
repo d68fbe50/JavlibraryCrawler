@@ -11,6 +11,11 @@ from dbop import mysql_op as db
 
 
 class MySQLPipeline:
+    """
+    auth: mikeshinoda
+    date: 2023.10.18
+    """
+
     def __init__(self):
         self.items_dict = defaultdict(list)
 
@@ -107,6 +112,11 @@ class MySQLPipeline:
 
 
 class RedisPipeline:
+    """
+    auth: mikeshinoda
+    date: 2023.10.13
+    """
+
     def close_spider(self, spider):
         """
         当spider关闭时执行的方法。

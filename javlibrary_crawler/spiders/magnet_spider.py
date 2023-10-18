@@ -3,6 +3,7 @@ from scrapy.crawler import CrawlerProcess
 import pymysql
 from config.database_config import MYSQL_CONFIG
 from javlibrary_crawler.items import MagnetItem
+from config import database_config as db
 
 
 class MagnetSpider(scrapy.Spider):
@@ -19,6 +20,7 @@ class MagnetSpider(scrapy.Spider):
 
         self.connection = pymysql.connect(**MYSQL_CONFIG)
         self.cursor = self.connection.cursor()
+        self.cursor.execute(f"use {db.MYSQL_DBNAME}")
         self.cursor.execute("SELECT serial_number FROM works")
         self.serial_numbers = [item['serial_number'] for item in self.cursor.fetchall()]
 

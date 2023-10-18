@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project version="4">
-  <component name="Black">
-    <option name="executionMode" value="BINARY" />
-    <option name="pathToExecutable" value="$PROJECT_DIR$/../miniconda3/envs/default/bin/black" />
-    <option name="sdkUUID" value="599c3952-4fab-4f3e-9c2b-62a091cf73bc" />
-  </component>
-  <component name="ProjectRootManager" version="2" project-jdk-name="javlibrary_crawler" project-jdk-type="Python SDK" />
-</project>

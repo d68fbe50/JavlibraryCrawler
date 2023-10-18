@@ -1,3 +1,5 @@
+import os.path
+
 import pymysql
 from scrapy.crawler import CrawlerProcess
 from scrapy.utils.project import get_project_settings
@@ -30,9 +32,14 @@ def main():
 
 
 def db_init():
-    connection = pymysql.connect(**MYSQL_CONFIG)
-    cursor = connection.cursor()
-    mysql_op.init_db(cursor, MYSQL_DBNAME)
+    try:
+        connection = pymysql.connect(**MYSQL_CONFIG)
+        cursor = connection.cursor()
+        mysql_op.init_db(cursor, MYSQL_DBNAME)
+    except pymysql.err.OperationalError as e:
+        print("🙅请先配置数据库信息！")
+        print("配置文件在: ", os.path.join(os.getcwd(), "config/database_config.py"))
+        exit(-1)
 
 
 def download_preview(start_date, end_date):

@@ -140,6 +140,9 @@ class WorksSpider(scrapy.Spider):
         item["comments"] = response.meta["comments"]
         item["reviews"] = response.meta["reviews"]
 
+        # Online MissAV
+        item["online_missav"] = "https://missav.com/dm44/cn/" + serial_number_result
+
         yield item
 
     def parse_magnet(self, response):

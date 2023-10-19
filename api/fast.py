@@ -89,7 +89,7 @@ async def get_works_by_date(date_range: DateRange):
     return {"works": works}
 
 
-@app.get("/display/")
+@app.get("/")
 def display_works(request: Request):
     works = get_works()
     return templates.TemplateResponse("display.html", {"request": request, "works": works})

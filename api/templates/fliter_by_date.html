@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Works查询工具 🌟</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            margin: 0; /* 重置 body 的默认边距 */
+        }
+
+        img {
+            height: 200px;
+            width: 100%; /* 使用100%的宽度填充容器 */
+            object-fit: cover; /* 图像裁剪并居中缩放以适应容器 */
+            display: block;
+            margin: 0 auto;
+            flex-shrink: 0;
+        }
+
+        li {
+            position: relative;
+            margin: 10px;
+            width: 300px;
+            text-align: center;
+            border: 1px solid #eaeaea;
+            border-radius: 5px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        ul {
+            display: flex;
+            flex-wrap: wrap;
+            list-style: none;
+            padding: 0;
+            justify-content: center; /* 使 flex items 居中 */
+        }
+
+        a {
+            text-decoration: none;
+            color: blue;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .text-content {
+            padding: 10px;
+        }
+
+        .cast-content {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            width: 280px; /* 修正宽度以适应li的300px宽度 */
+        }
+
+        button.copyBtn {
+            margin-top: 5px;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+
+    </style>
+</head>
+
+<body>
+
+<h2>请选择日期范围📅:</h2>
+
+开始日期: <input type="date" id="start_date"><br><br>
+结束日期: <input type="date" id="end_date"><br><br>
+
+<button id="fetchData">获取数据🔍</button>
+
+<h3 style="text-align: center;">Works List</h3>
+<ul id="worksList"></ul>
+
+<script>
+    $(document).ready(function () {
+        $('#fetchData').click(function () {
+            let start_date = $('#start_date').val();
+            let end_date = $('#end_date').val();
+
+            if (!start_date || !end_date) {
+                alert('请确保两个日期都已选择喔! 🚫');
+                return;
+            }
+
+            $.ajax({
+                url: '/api/get_works_by_date/',
+                method: 'POST',
+                data: JSON.stringify({
+                    "start_date": start_date,
+                    "end_date": end_date
+                }),
+                contentType: 'application/json',
+                success: function (data) {
+                    let works = data.works;
+                    let htmlContent = '';
+
+                    works.forEach(work => {
+                        htmlContent += `
+                                <li>
+                                    <a href="${work.online_missav}" target="_blank">
+                                        <img src="${work.preview}" alt="Work Preview">
+                                    </a>
+                                    <div class="text-content">
+                                        <div><a href="${work.link}" target="_blank">${work.serial_number}</a></div>
+                                        <div>${work.release_date}</div>
+                                        <div class="cast-content">${work.cast}</div>
+                                        <!-- 添加复制按钮 -->
+                                        <button class="copyBtn" data-magnet="${work.magnet_link}">复制magnet🧲</button>
+                                    </div>
+                                </li>
+                            `;
+                    });
+
+                    $('#worksList').html(htmlContent);
+
+                    // 注册复制按钮事件
+                    $('.copyBtn').click(function () {
+                        let magnet = $(this).attr('data-magnet');
+
+                        // 创建一个隐藏的textarea来复制内容
+                        let $temp = $("<textarea>");
+                        $("body").append($temp);
+                        $temp.val(magnet).select();
+                        document.execCommand("copy");
+                        $temp.remove();
+
+                        alert('Magnet link已复制! 🎉');
+                    });
+
+                },
+                error: function (error) {
+                    alert('哎呀，出错了! 😥 请检查你的API服务器和网络连接。');
+                }
+            });
+        });
+    });
+</script>
+
+</body>
+
+</html>

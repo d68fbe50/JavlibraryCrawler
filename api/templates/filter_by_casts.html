@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Works数据筛选🌟</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        /* ... (这里是您的样式内容) ... */
+        body {
+            margin: 0; /* 重置 body 的默认边距 */
+        }
+
+        img {
+            height: 200px;
+            width: 100%; /* 使用100%的宽度填充容器 */
+            object-fit: cover; /* 图像裁剪并居中缩放以适应容器 */
+            display: block;
+            margin: 0 auto;
+            flex-shrink: 0;
+        }
+
+        li {
+            position: relative;
+            margin: 10px;
+            width: 300px;
+            text-align: center;
+            border: 1px solid #eaeaea;
+            border-radius: 5px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        ul {
+            display: flex;
+            flex-wrap: wrap;
+            list-style: none;
+            padding: 0;
+            justify-content: center; /* 使 flex items 居中 */
+        }
+
+        a {
+            text-decoration: none;
+            color: blue;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .text-content {
+            padding: 10px;
+        }
+
+        .cast-content {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            width: 280px; /* 修正宽度以适应li的300px宽度 */
+        }
+
+        button.copyBtn {
+            margin-top: 5px;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+
+    </style>
+</head>
+
+<body>
+<h2 style="text-align: center;">请根据演员ID筛选Works📅:</h2>
+
+<input type="text" id="actorIDs" placeholder="输入演员ID，用空格分隔"/>
+<button id="filterByCast">筛选数据🔍</button>
+
+<h3 style="text-align: center;">Works List</h3>
+<ul id="worksList"></ul>
+
+<script>
+    $('#filterByCast').click(function () {
+        const actorIDs = $('#actorIDs').val().split(' ');
+
+        $.ajax({
+            url: '/api/works_by_cast/',
+            method: 'POST',
+            contentType: 'application/json',
+            data: JSON.stringify({actor_ids: actorIDs}),
+            success: function (data) {
+                let works = data.works;
+                let htmlContent = '';
+
+                works.forEach(work => {
+                    htmlContent += `
+                        <li>
+                            <a href="${work.online_missav}" target="_blank">
+                                <img src="${work.preview}" alt="Work Preview">
+                            </a>
+                            <div class="text-content">
+                                <div><a href="${work.link}" target="_blank">${work.serial_number}</a></div>
+                                <div>${work.release_date}</div>
+                                <div class="cast-content">${work.cast}</div>
+                                <button class="copyBtn" data-magnet="${work.magnet_link}">复制magnet🧲</button>
+                            </div>
+                        </li>
+                    `;
+                });
+
+                $('#worksList').html(htmlContent);
+            }
+        });
+    });
+
+    // 复制magnet链接的功能
+    $(document).on('click', '.copyBtn', function () {
+        let magnet = $(this).data('magnet');
+
+        let $temp = $("<textarea>");
+        $("body").append($temp);
+        $temp.val(magnet).select();
+        document.execCommand("copy");
+        $temp.remove();
+
+        alert('Magnet link已复制! 🎉');
+    });
+</script>
+
+</body>
+</html>

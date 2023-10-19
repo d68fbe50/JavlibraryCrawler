@@ -42,9 +42,9 @@ pip install -r requirements.txt
 ### 2️⃣ 配置参数
 
 - ✏️ 修改 `config.arguments` 文件，按需配置。
-    - 填入想要爬取的演员 ID。例如 `https://www.javlibrary.com/cn/vl_star.php?list&mode=&s=ae5q6&page=1` 的 `ae5q6`。
-    - `reference` 提供了演员数据的 json 格式供参考。
-    - 通过 `magnet_file = [2, 10]` 来调整磁力链的大小区间。
+  - 填入想要爬取的演员 ID。例如 `https://www.javlibrary.com/cn/vl_star.php?list&mode=&s=ae5q6&page=1` 的 `ae5q6`。
+  - `reference` 提供了演员数据的 json 格式供参考。
+  - 通过 `magnet_file = [2, 10]` 来调整磁力链的大小区间。
 - 📂 根据需要选择数据库类型并修改 `javlibrary_crawer.settings.ITEM_PIPELINES` 以及相关的数据库配置。
 
 ### 3️⃣ 启动爬虫
@@ -53,6 +53,14 @@ pip install -r requirements.txt
 
 ```bash
 python main.py
+```
+
+### 4️⃣FastApi
+
+```bash
+cd api
+python fast.py
+
 ```
 
 🎉 爬取的数据会储存到你配置的数据库中！

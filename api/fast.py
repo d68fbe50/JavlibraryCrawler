@@ -79,7 +79,11 @@ def get_works():
     获取所有作品数据
     返回按发布日期降序排列的作品列表
     """
-    works_data = fetch_data_from_db("SELECT * FROM works ORDER BY release_date DESC")
+    # works_data = fetch_data_from_db("SELECT * FROM works ORDER BY release_date DESC")
+    # works_data = fetch_data_from_db("SELECT * FROM works WHERE genres LIKE '%单体%' ORDER BY release_date DESC")
+    works_data = fetch_data_from_db(
+        "SELECT * FROM works WHERE genres LIKE '%单体%' AND genres NOT LIKE '%VR%' ORDER BY release_date DESC")
+
     for work in works_data:
         work["release_date"] = work["release_date"].strftime('%Y-%m-%d')
     return [Work(**work) for work in works_data]

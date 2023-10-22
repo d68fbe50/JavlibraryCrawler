@@ -9,7 +9,7 @@ from config.arguments import ids as ids
 class WorksSpider(scrapy.Spider):
     name = arguments.works_spidername
     base_url_template = (
-        "https://www.javlibrary.com/cn/vl_star.php?list&mode=&s={actor_id}&page={page}"
+        "https://www.javlibrary.com/cn/vl_star.php?list&mode=2&s={actor_id}&page={page}"
     )
     items_dict = {}
     custom_settings = {

@@ -20,6 +20,7 @@ def main():
     # 当WorksSpider爬虫关闭时，启动MagnetSpider
     def on_spider_closed(spider, reason):
         if spider.name == arguments.works_spidername:  # 这里假设你的WorksSpider的名字是'works_spider'
+            # 不要磁力爬取
             # process.crawl(MagnetSpider)
             pass
 
@@ -49,7 +50,7 @@ def download_preview(start_date, end_date):
 
 if __name__ == "__main__":
     # 是否初始化数据库
-    db_init()
+    # db_init()
     main()
     # 下载预览图
     # 你可以在这里定义所需的日期范围

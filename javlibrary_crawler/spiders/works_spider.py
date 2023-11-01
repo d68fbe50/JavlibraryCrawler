@@ -51,6 +51,10 @@ class WorksSpider(scrapy.Spider):
         for page in range(2, last_page_num + 1):
             # print(f"Current Page {page}, Total Page {last_page_num}")
             yield scrapy.Request(url=base_url.format(page), callback=self.parse)
+        # 爬取前两页
+        # for page in range(2, 3):
+        #     # print(f"Current Page {page}, Total Page {last_page_num}")
+        #     yield scrapy.Request(url=base_url.format(page), callback=self.parse)
 
     def parse(self, response):
         for item in self.parse_page_data(response):

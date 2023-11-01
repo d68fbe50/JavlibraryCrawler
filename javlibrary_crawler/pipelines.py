@@ -1,6 +1,6 @@
 import redis
 import pymysql
-from config.database_config import REDIS_CONFIG, MYSQL_CONFIG
+from config.database_config import REDIS_CONFIG, MYSQL_CONFIG, MYSQL_DBNAME
 from config import arguments
 from utils.get_magnet_from_U3C3 import fliter_by_size, size_to_float
 from collections import defaultdict
@@ -23,7 +23,7 @@ class MySQLPipeline:
         # 连接到MySQL数据库
         self.connection = pymysql.connect(**MYSQL_CONFIG)
         self.cursor = self.connection.cursor()
-        self.cursor.execute("use javcrawer")
+        self.cursor.execute(f"use {MYSQL_DBNAME}")
         self.items_list = []
 
     def process_item(self, item, spider):

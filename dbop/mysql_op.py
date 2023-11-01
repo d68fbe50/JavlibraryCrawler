@@ -26,10 +26,12 @@ fields = {
     'online_missav': 'TEXT'
 }
 
+from config.database_config import MYSQL_DBNAME
+
 
 def recreate_table(cursor):
     # 使用新创建的数据库
-    cursor.execute("USE javcrawer")
+    cursor.execute(f"USE {MYSQL_DBNAME}")
 
     # 检查表是否存在，如果存在则删除
     drop_table(cursor, "actor")

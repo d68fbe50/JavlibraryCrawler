@@ -48,13 +48,8 @@ class WorksSpider(scrapy.Spider):
         last_page_num = int(last_page[0] if last_page else 1)
 
         # 使用for循环生成每一页的URL，并使用parse方法爬取数据
-        for page in range(2, last_page_num + 1):
-            # print(f"Current Page {page}, Total Page {last_page_num}")
+        for page in range(2, last_page_num + 1 if arguments.recent is -1 else arguments.recent):
             yield scrapy.Request(url=base_url.format(page), callback=self.parse)
-        # 爬取前两页
-        # for page in range(2, 3):
-        #     # print(f"Current Page {page}, Total Page {last_page_num}")
-        #     yield scrapy.Request(url=base_url.format(page), callback=self.parse)
 
     def parse(self, response):
         for item in self.parse_page_data(response):

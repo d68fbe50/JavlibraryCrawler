@@ -1,0 +1,8 @@
+site_name: My Docs
+theme:
+  name: "material"
+plugins:
+  - mkdocstrings:
+      handlers:
+        python:
+          path: [javcrawler]

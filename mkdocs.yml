@@ -1,12 +1,11 @@
 site_name: My Docs
 docs_dir: "src" # 指定 Markdown 文件所在的目录，默认为 "docs"
 site_dir: "docs" # 指定生成的文件夹名，默认为 "site"
+extra_css:
+  - style.css
 theme:
   name: "material"
-  language: zh
-  fonts:
-    text: Sono
-    code: JetBrains Mono
+  language: en
   features:
     - navigation.tabs
     - search.suggest

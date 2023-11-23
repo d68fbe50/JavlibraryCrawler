@@ -1,0 +1,20 @@
+/* Example usage of the imported font */
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital@0;1&family=Noto+Serif+TC&family=Open+Sans:ital@0;1&display=swap');
+h1,h2,h3,h4,body {
+font-family: 'Open Sans','Noto Serif SC', serif;
+font-weight: 500; /* Adjust the value to set the desired font weight */
+font-size: 1rem;
+/* color: red; */
+/* or font-family: 'Noto Serif TC', serif; depending on your needs */
+}
+.md-typeset h1,.md-typeset code{
+font-family: 'JetBrains Mono'
+}
+.doc-contents td code{
+font-size:0.7rem
+}
+.md-grid {
+margin-left: auto;
+margin-right: auto;
+max-width: 80rem;
+}

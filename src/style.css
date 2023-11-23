@@ -11,6 +11,14 @@ font-weight: 600; /* Adjust the value to set the desired font weight */
 }
 .md-typeset h1,.md-typeset code{
 font-family: 'JetBrains Mono'
+font-size:0.7rem
+}
+.md-typeset pre>code{
+font-family: 'JetBrains Mono'
+font-size:0.7rem
+}
+.highlighttable .linenodiv pre{
+font-size:0.7rem
 }
 .doc-contents td code{
 font-size:0.7rem

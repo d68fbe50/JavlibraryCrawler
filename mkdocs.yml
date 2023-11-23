@@ -4,6 +4,9 @@ site_dir: "docs" # 指定生成的文件夹名，默认为 "site"
 theme:
   name: "material"
   language: en
+  fonts:
+    text: Open Sans
+    code: Inconsolata
   features:
     - navigation.tabs
     - search.suggest

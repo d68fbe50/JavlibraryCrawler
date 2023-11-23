@@ -34,6 +34,7 @@ nav:
       - Arguments: config/arguments.md
   - Database operations:
       - MySQL: dbop/mysql_op.md
+  - Pipelines: pipelines.md
   - Test:
       - hello: hello.md
       - world: world.md

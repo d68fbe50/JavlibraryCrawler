@@ -12,8 +12,19 @@ from dbop import mysql_op as db
 
 class MySQLPipeline:
     """
-    auth: mikeshinoda
-    date: 2023.10.18
+    MySQLPipeline class for handling data processing and storage in MySQL database.
+
+    Attributes:
+        items_dict (defaultdict): A dictionary with default list values for storing items.
+
+    Methods:
+        open_spider(spider): Establishes a connection to the MySQL database when the spider is opened.
+        process_item(item, spider): Processes each item and saves it to the corresponding database table based on the spider's name.
+        close_spider(spider): Closes the database connection when the spider is closed.
+        update_magnet(): Updates the magnet links in the 'works' table.
+        fliter_by_size(lists, min_size, max_size): Filters a list of items based on size criteria.
+        get_max_size_item(items): Returns the item with the maximum size.
+
     """
 
     def __init__(self):
@@ -34,12 +45,15 @@ class MySQLPipeline:
         with self.connection.cursor() as cursor:
             # 如果是 ActorSpider，将数据保存到 'actor' 表
             if spider.name == arguments.actor_spidername:
-                cursor.execute("""
+                cursor.execute(
+                    """
                 INSERT INTO actor(actor_id, actor_name) 
                 VALUES (%s, %s)
                 ON DUPLICATE KEY UPDATE 
                 actor_name = VALUES(actor_name)
-                """, (item['actor_id'], item.get('actor_name', '')))
+                """,
+                    (item["actor_id"], item.get("actor_name", "")),
+                )
             # 如果是 JavlibrarySpider，将数据保存到 'spider' 表
             if spider.name == arguments.works_spidername:
                 # 定义列名的列表和对应的item键的列表
@@ -47,12 +61,12 @@ class MySQLPipeline:
                 item_keys = db.item_keys
 
                 # 使用列表解析生成插入和更新的SQL语句部分
-                columns_str = ', '.join(columns)
-                placeholders = ', '.join(['%s'] * len(columns))
-                update_str = ', '.join([f"{col} = VALUES({col})" for col in columns])
+                columns_str = ", ".join(columns)
+                placeholders = ", ".join(["%s"] * len(columns))
+                update_str = ", ".join([f"{col} = VALUES({col})" for col in columns])
 
                 # 使用列表解析从item中获取数据
-                values = [item.get(key, '') for key in item_keys]
+                values = [item.get(key, "") for key in item_keys]
 
                 # 生成并执行SQL语句
                 sql = f"""
@@ -63,7 +77,7 @@ class MySQLPipeline:
                 """
                 cursor.execute(sql, values)
             if spider.name == arguments.magnet_spidername:
-                serial_number = item['SerialNumber']
+                serial_number = item["SerialNumber"]
                 self.items_dict[serial_number].append(item)
             # 提交数据到数据库
             self.connection.commit()
@@ -84,17 +98,22 @@ class MySQLPipeline:
     def update_magnet(self):
         for serial_number, items in self.items_dict.items():
             # 取得大小范围内的magnet对象
-            ft = self.fliter_by_size(items, arguments.magnet_file[0], arguments.magnet_file[1])
+            ft = self.fliter_by_size(
+                items, arguments.magnet_file[0], arguments.magnet_file[1]
+            )
             if ft:
                 max_ft = self.get_max_size_item(ft)
                 # print(max_ft['SerialNumber'], max_ft["Size"], max_ft["MagnetLink"])
                 self.cursor.execute("DESCRIBE works;")
-                self.cursor.execute("""
+                self.cursor.execute(
+                    """
                 INSERT INTO works(serial_number, magnet_link)
                 VALUES (%s, %s)
                 ON DUPLICATE KEY UPDATE
                 magnet_link=VALUES(magnet_link)
-                """, (max_ft['SerialNumber'], max_ft["MagnetLink"]))
+                """,
+                    (max_ft["SerialNumber"], max_ft["MagnetLink"]),
+                )
                 # 提交更新
                 self.connection.commit()
             else:
@@ -102,13 +121,17 @@ class MySQLPipeline:
 
     def fliter_by_size(self, lists, min_size, max_size):
         # 过滤出给定大小范围内的对象
-        filtered_list = [item for item in lists if min_size <= size_to_float(item['Size']) <= max_size]
+        filtered_list = [
+            item
+            for item in lists
+            if min_size <= size_to_float(item["Size"]) <= max_size
+        ]
         if filtered_list:
             return filtered_list
         return None
 
     def get_max_size_item(self, items):
-        return max(items, key=lambda x: size_to_float(x['Size']))
+        return max(items, key=lambda x: size_to_float(x["Size"]))
 
 
 class RedisPipeline:

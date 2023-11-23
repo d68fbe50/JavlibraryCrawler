@@ -3,10 +3,10 @@ docs_dir: "src" # 指定 Markdown 文件所在的目录，默认为 "docs"
 site_dir: "docs" # 指定生成的文件夹名，默认为 "site"
 theme:
   name: "material"
-  language: en
+  language: zh
   fonts:
-    text: Open Sans
-    code: Inconsolata
+    text: Noto Serif Simplified Chinese
+    code: JetBrains Mono
   features:
     - navigation.tabs
     - search.suggest

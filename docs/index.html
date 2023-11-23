@@ -853,7 +853,8 @@
 <h2 id="javlibrary">🖥️ Javlibrary 爬虫</h2>
 <h3 id="_1">🌟 介绍</h3>
 <p>🎥 <code>Javlibrary 爬虫</code> 是一个利用 <code>Scrapy</code> 框架创建的项目，目的是从 <a href="https://www.javlibrary.com/">JavLibrary</a>
-网站中抓取日本成人视频的资料。从这个项目里，你可以获得如演员信息、作品详细、评分、评论数、导演、制片商和标签等数据。</p>
+网站中抓取日本成人视频的资料。</p>
+<p>从这个项目里，你可以获得如演员信息、作品详细、评分、评论数、导演、制片商和标签等数据。</p>
 <h3 id="_2">🗄️ 数据库结构</h3>
 <p><a href="https://dbdiagram.io/">数据库示意图</a></p>
 <pre><code>Table movies {
@@ -884,20 +885,28 @@ Ref: movies.actor_id &gt; actors.actor_id
 Ref: movies.cast &gt; actors.actor_name
 </code></pre>
 <h3 id="_3">🛠️ 使用方法</h3>
-<p>🔧 确保你已安装必要的依赖，例如 <code>Scrapy</code> 和 <code>pymysql</code>。
-🌐 使用科学上网，面对403错误时可以尝试切换到韩国或台湾的代理节点。
-❌ 请不在 GitHub Actions 中设置任务，因为 JavLibrary 有封锁 GitHub IP 的措施。
-🌹 在项目根目录，新建一个<code>python</code>环境</p>
+<p>🔧 确保你已安装必要的依赖，例如 <code>Scrapy</code> 和 <code>pymysql</code>。</p>
+<p>🌐 使用科学上网，面对403错误时可以尝试切换到韩国或台湾的代理节点。</p>
+<p>❌ 请不在 GitHub Actions 中设置任务，因为 JavLibrary 有封锁 GitHub IP 的措施。</p>
+<p>🌹 在项目根目录，新建一个<code>python</code>环境</p>
 <pre><code>python3 -m venv env
 source env/bin/activate
 pip install -r requirements.txt
 </code></pre>
 <p>如果你使用的是pycharm，别忘记修改python的解释器为本地的env。</p>
-<p>✏️ 修改 <code>config.arguments</code> 文件，按需配置。
-- 填入想要爬取的演员 ID。例如 <code>https://www.javlibrary.com/cn/vl_star.php?list&amp;mode=&amp;s=ae5q6&amp;page=1</code> 的 <code>ae5q6</code>。
-- <code>reference</code> 提供了演员数据的 json 格式供参考。
-- 通过 <code>magnet_file = [2, 10]</code> 来调整磁力链的大小区间。
-📂 根据需要选择数据库类型并修改 <code>javlibrary_crawer.settings.ITEM_PIPELINES</code> 以及相关的数据库配置。</p>
+<p>✏️ 修改 <code>config.arguments</code> 文件，按需配置。</p>
+<ul>
+<li>
+<p>填入想要爬取的演员 ID。例如 <code>https://www.javlibrary.com/cn/vl_star.php?list&amp;mode=&amp;s=ae5q6&amp;page=1</code> 的 <code>ae5q6</code>。</p>
+</li>
+<li>
+<p><code>reference</code> 提供了演员数据的 json 格式供参考。</p>
+</li>
+<li>
+<p>通过 <code>magnet_file = [2, 10]</code> 来调整磁力链的大小区间。</p>
+</li>
+</ul>
+<p>📂 根据需要选择数据库类型并修改 <code>javlibrary_crawer.settings.ITEM_PIPELINES</code> 以及相关的数据库配置。</p>
 <p>执行下列命令：</p>
 <pre><code>python main.py
 </code></pre>
@@ -907,8 +916,8 @@ python fast.py
 </code></pre>
 <p>🎉 爬取的数据会储存到你配置的数据库中！</p>
 <h3 id="_4">⚠️ 注意事项</h3>
-<p>🚫 确保你有合法权利访问目标网站。
-🐢 过于频繁的爬取可能导致 IP 被封，建议在 <code>settings.py</code> 中适当设置延迟。
+<p>🚫 确保你有合法权利访问目标网站。</p>
+<p>🐢 过于频繁的爬取可能导致 IP 被封，建议在 <code>settings.py</code> 中适当设置延迟。
 📜 遵守网站的 <code>robots.txt</code> 及相关法律法规。</p>
 <h3 id="_5">🤝 贡献</h3>
 <p>🙌 欢迎你的提问和合作，一起让这个项目变得更好！</p>

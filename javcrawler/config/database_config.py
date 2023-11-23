@@ -20,6 +20,27 @@ MYSQL_CONFIG = {
     "cursorclass": pymysql.cursors.DictCursor,
 }
 
+
+def get_redis_config():
+    """
+    获取Redis服务器的配置参数。
+
+    Returns:
+        dict: 包含Redis服务器配置参数的字典。
+    """
+    return REDIS_CONFIG
+
+
+def get_mysql_config():
+    """
+    获取Mysql服务器的配置参数。
+
+    Returns:
+        dict: 包含Mysql服务器配置参数的字典。
+    """
+    return MYSQL_CONFIG
+
+
 if __name__ == "__main__":
     # 调用重新创建表的函数
     pass

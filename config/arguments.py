@@ -31,7 +31,8 @@ works_spidername = "works_spider"
 magnet_spidername = "magnet_spider"
 
 # 磁力链接的文件大小区间
-MAGNET_FILE_SIZE_RANGE = (1024, 5120)  # 设置磁力链接文件大小的区间，单位为KB
+# 设置磁力链接文件大小的区间，单位为KB
+magnet_file = [2, 10]
 
 
 def get_actor_ids():
@@ -42,6 +43,7 @@ def get_actor_ids():
         list: 包含女优ID的列表。
     """
     return ids
+
 
 def get_recent_pages():
     """

@@ -70,9 +70,9 @@ def get_magnet_file_size_range():
     获取磁力链接文件大小的区间。
 
     Returns:
-        tuple: 包含文件大小区间的元组，单位为KB。
+        list: 包含文件大小区间的列表
     """
-    return MAGNET_FILE_SIZE_RANGE
+    return magnet_file
 
 
 if __name__ == "__main__":

@@ -1,5 +1,5 @@
 # 要爬取的女优（演员）ID列表
-ACTOR_IDS = [
+ids = [
     "ayuf2",  # 園田みおん
     "aetua",  # 冬愛ことね
     "ay4sm",  # 初川南
@@ -41,8 +41,7 @@ def get_actor_ids():
     Returns:
         list: 包含女优ID的列表。
     """
-    return ACTOR_IDS
-
+    return ids
 
 def get_recent_pages():
     """

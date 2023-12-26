@@ -52,7 +52,7 @@ def download_preview(start_date, end_date):
 
 if __name__ == "__main__":
     # 是否初始化数据库
-    # db_init()
+    db_init()
     main()
     # 下载预览图
     # 你可以在这里定义所需的日期范围

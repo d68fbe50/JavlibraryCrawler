@@ -155,6 +155,7 @@ def init_db(cursor, db_name):
     """
     # 检查数据库是否存在
     db_exists = cursor.execute("SHOW DATABASES LIKE %s", db_name)
+    print(db_exists)
     if not db_exists:
         # 如果数据库不存在，则创建数据库
         print(f"database: {db_name} not exists.")

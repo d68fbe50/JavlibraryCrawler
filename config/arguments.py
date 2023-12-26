@@ -1,4 +1,5 @@
 # 要爬取的女优（演员）ID列表
+
 ids = [
     "ayuf2",  # 園田みおん
     "aetua",  # 冬愛ことね
@@ -20,7 +21,6 @@ ids = [
     "azcvi",  # 泷泽萝拉
     "afkv4",  # 斎藤あみり
     "abgvq",  # 小花のん
-    # 在这里添加更多演员id
     "aadt6",  # 小鳥遊もえ
     'aaoa4',  # 小湊よつ葉
     'abbds',  # 山手梨愛
@@ -47,25 +47,6 @@ ids = [
     "onba",  # 希志あいの
     "aygdk",  # 希島あいり
     "afib2",  # 水森翠
-    "ayuf2",  # 園田みおん
-    "aetua",  # 冬愛ことね
-    "ay4sm",  # 初川南
-    "ayua",  # JULIA
-    "aaiqq",  # 水端あさみ
-    "aanv6",  # 歌野こころ
-    "aycfw",  # 辻本杏
-    "j4wq",  # 白石もも
-    "aacqo",  # 東条実澪
-    "azda2",  # 愛沢有紗
-    "affam",  # 本田もも
-    "abbeg",  # 栗宮ふたば
-    "aacfw",  # 佐野ゆま
-    "ayad4",  # 饭冈加奈子
-    "aeqqu",  # 逢見リカ
-    "ci",  # 一ノ瀬アメリ
-    "pyvq",  # 佳山三花
-    "azcvi",  # 泷泽萝拉
-    "afkv4",  # 斎藤あみり
 ]
 
 ids = list(set(ids))
